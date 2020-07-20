@@ -21,61 +21,55 @@ namespace Coworking.Api.DataAccess.Repositories
 
         //CRUD:CREATE / READ / UPDATE /DELETE
 
-        
 
-        public async Task<AdminEntity> Add(AdminEntity element)
+
+        public async Task<IEnumerable<AdminEntity>> GetAll()
         {
-            await _coworkingDbContext.Admins.AddAsync(element);
-            await _coworkingDbContext.SaveChangesAsync();
-            return element;
-        }
-
-        public async Task<AdminEntity> Update(int id, AdminEntity entity)
-        {
-            var entry = await Get(id);
-            entry.Name = entity.Name;
-
-            _coworkingDbContext.Admins.Update(entity);
-            await _coworkingDbContext.SaveChangesAsync();
-
-            return entity;
-        }
-                                                                                                        
-        public async Task DeleteAsync(int id)
-        {
-            var entity = await _coworkingDbContext.Admins.SingleAsync(x => x.Id == id);
-            _coworkingDbContext.Admins.Remove(entity);
-
-            await _coworkingDbContext.SaveChangesAsync();
-
-        }
-
-        public async Task<bool> Exist(int id)
-        {
-           var entity = await Get(id);
-            var result = false;
-            if (entity != null)
-            {
-                result = true;
-            }
-            return result;
-
+            var data = await _coworkingDbContext.Admins.ToListAsync();
+            return data;
         }
 
         public async Task<AdminEntity> Get(int id)
         {
             var resultData = await _coworkingDbContext
-                            .Admins.Include(x=>x.Office).FirstOrDefaultAsync(x => x.Id == id);
+                            .Admins.FirstOrDefaultAsync(x => x.Id == id);
             return resultData;
         }
 
-        public async Task<IEnumerable<AdminEntity>> GetAll()
+        public async Task<AdminEntity> Add(AdminEntity adminEntity)
         {
-            var data = await _coworkingDbContext.Admins.Include(x=>x.Office).ToListAsync();
-
-            return data;
+            var data = await _coworkingDbContext.Admins.AddAsync(adminEntity);
+            await _coworkingDbContext.SaveChangesAsync();
+            return adminEntity;
         }
 
-     
+        public async Task<AdminEntity> Update(int id,AdminEntity adminEntity)
+        {
+            var dataExist = await Get(id);
+            adminEntity.Name = dataExist.Name;
+
+                  _coworkingDbContext.Admins.Update(adminEntity);
+            await _coworkingDbContext.SaveChangesAsync();
+
+            return adminEntity;
+
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+           var dataEntity =  await Get(id);
+            _coworkingDbContext.Admins.Remove(dataEntity);
+            await _coworkingDbContext.SaveChangesAsync();
+
+        }
+
+        public Task<bool> Exist(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+  
+
+   
     }
 }

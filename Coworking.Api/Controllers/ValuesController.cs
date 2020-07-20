@@ -12,10 +12,10 @@ namespace Coworking.Api.Controllers
     public class ValuesController : ControllerBase
     {
 
-        private readonly IAdminService _adminService;
+     
         public ValuesController(IAdminService adminService)
         {
-            _adminService = adminService;
+          
         }
 
         // GET api/values
@@ -25,13 +25,7 @@ namespace Coworking.Api.Controllers
             return new string[] { "value1", "value2" };
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
-        {
-            
-            return "value";
-        }
+     
 
         // POST api/values
         [HttpPost]

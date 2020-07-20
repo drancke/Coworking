@@ -9,4 +9,9 @@
     <Folder Include="Models\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Coworking.Api.Business\Coworking.Api.Business.csproj" />
+    <ProjectReference Include="..\Coworking.Api.DataAccess.Contracts\Coworking.Api.DataAccess.Contracts.csproj" />
+  </ItemGroup>
+
 </Project>

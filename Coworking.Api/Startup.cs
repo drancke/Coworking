@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Coworking.Api.CrossCuting.Register;
 using Coworking.Api.DataAccess;
+using Coworking.Api.DataAccess.Contracts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,8 +31,8 @@ namespace Coworking.Api
         public void ConfigureServices(IServiceCollection services)
         {
             
-            services.AddDbContext<CoworkingDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("DatabaseConnection")));
             IoTRegister.AddRegistration(services);
+            services.AddDbContext<CoworkingDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("DatabaseConnection")));
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);

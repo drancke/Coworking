@@ -6,7 +6,10 @@
 
   <ItemGroup>
     <Folder Include="Mappers\" />
-    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Coworking.Api.Application.Contracts\Coworking.Api.Application.Contracts.csproj" />
   </ItemGroup>
 
 </Project>

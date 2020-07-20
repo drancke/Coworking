@@ -7,10 +7,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Coworking.Api.Aplication\Coworking.Api.Aplication.csproj" />
     <ProjectReference Include="..\Coworking.Api.Application.Contracts\Coworking.Api.Application.Contracts.csproj" />
-    <ProjectReference Include="..\Coworking.Api.Business\Coworking.Api.Business.csproj" />
     <ProjectReference Include="..\Coworking.Api.DataAccess.Contracts\Coworking.Api.DataAccess.Contracts.csproj" />
     <ProjectReference Include="..\Coworking.Api.DataAccess\Coworking.Api.DataAccess.csproj" />
-    <ProjectReference Include="..\Coworking.Api\Coworking.Api.csproj" />
   </ItemGroup>
 
 </Project>

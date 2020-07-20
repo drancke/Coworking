@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Coworking.Api.Application.Contracts.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Coworking.Api.Controllers
@@ -10,6 +11,13 @@ namespace Coworking.Api.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+
+        private readonly IAdminService _adminService;
+        public ValuesController(IAdminService adminService)
+        {
+            _adminService = adminService;
+        }
+
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
@@ -21,6 +29,7 @@ namespace Coworking.Api.Controllers
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
+            
             return "value";
         }
 

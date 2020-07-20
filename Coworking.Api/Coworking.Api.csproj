@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Coworking.Api.CrossCuting\Coworking.Api.CrossCuting.csproj" />
     <ProjectReference Include="..\Coworking.Api.DataAccess\Coworking.Api.DataAccess.csproj" />
   </ItemGroup>
 

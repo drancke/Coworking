@@ -23,11 +23,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.4 - DataAccess", "1.4 - D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.5 - Cross-Cutting", "1.5 - Cross-Cutting", "{BEDC140A-C241-4248-AD7F-63D6E00191D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coworking.Api.DataAccess", "Coworking.Api.DataAccess\Coworking.Api.DataAccess.csproj", "{541AD2E4-1DBC-450A-8210-9742F8CAEAF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Coworking.Api.DataAccess", "Coworking.Api.DataAccess\Coworking.Api.DataAccess.csproj", "{541AD2E4-1DBC-450A-8210-9742F8CAEAF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coworking.Api.DataAccess.Contracts", "Coworking.Api.DataAccess.Contracts\Coworking.Api.DataAccess.Contracts.csproj", "{165017C6-CC3F-470B-A528-B9F6A2C65A54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Coworking.Api.DataAccess.Contracts", "Coworking.Api.DataAccess.Contracts\Coworking.Api.DataAccess.Contracts.csproj", "{165017C6-CC3F-470B-A528-B9F6A2C65A54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coworking.Api.CrossCutting", "Coworking.Api.CrossCutting\Coworking.Api.CrossCutting.csproj", "{683F4208-376B-43DB-81CD-BBB7FB3936BA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coworking.Api.CrossCuting", "Coworking.Api.CrossCuting\Coworking.Api.CrossCuting.csproj", "{E2FC172E-9871-4D00-9E52-9C0F5A74A382}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,10 +59,10 @@ Global
 		{165017C6-CC3F-470B-A528-B9F6A2C65A54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{165017C6-CC3F-470B-A528-B9F6A2C65A54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{165017C6-CC3F-470B-A528-B9F6A2C65A54}.Release|Any CPU.Build.0 = Release|Any CPU
-		{683F4208-376B-43DB-81CD-BBB7FB3936BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{683F4208-376B-43DB-81CD-BBB7FB3936BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{683F4208-376B-43DB-81CD-BBB7FB3936BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{683F4208-376B-43DB-81CD-BBB7FB3936BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2FC172E-9871-4D00-9E52-9C0F5A74A382}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2FC172E-9871-4D00-9E52-9C0F5A74A382}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2FC172E-9871-4D00-9E52-9C0F5A74A382}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2FC172E-9871-4D00-9E52-9C0F5A74A382}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -79,7 +79,7 @@ Global
 		{BEDC140A-C241-4248-AD7F-63D6E00191D7} = {9BDD2926-FD37-4227-ABDD-C40CA4F8F5F8}
 		{541AD2E4-1DBC-450A-8210-9742F8CAEAF2} = {2EB620DF-E1E5-4E26-BF62-324048D400D3}
 		{165017C6-CC3F-470B-A528-B9F6A2C65A54} = {2EB620DF-E1E5-4E26-BF62-324048D400D3}
-		{683F4208-376B-43DB-81CD-BBB7FB3936BA} = {BEDC140A-C241-4248-AD7F-63D6E00191D7}
+		{E2FC172E-9871-4D00-9E52-9C0F5A74A382} = {BEDC140A-C241-4248-AD7F-63D6E00191D7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {404B56C3-778F-47FC-BF31-52AC44DBFFE3}

@@ -7,12 +7,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-
-namespace Coworking.Api.CrossCutting.Register
+namespace Coworking.Api.CrossCuting.Register
 {
    public static class IoTRegister
     {
-        public static IServiceCollection  AddRegistration(IServiceCollection services)
+
+        public static IServiceCollection AddRegistration(IServiceCollection services)
         {
             AddRegisterRepositories(services);
             AddRegisterService(services);

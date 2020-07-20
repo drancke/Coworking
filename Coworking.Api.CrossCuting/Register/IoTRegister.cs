@@ -25,6 +25,7 @@ namespace Coworking.Api.CrossCuting.Register
         public static IServiceCollection AddRegisterService(IServiceCollection services)
         {
             services.AddTransient<IAdminService, AdminService>();
+            services.AddTransient<IBookingService, BookingService>();
 
 
 

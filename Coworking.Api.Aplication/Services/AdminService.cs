@@ -1,8 +1,10 @@
-﻿using Coworking.Api.Application.Contracts.Services;
+﻿using Coworking.Api.Aplication.Configuration;
+using Coworking.Api.Application.Contracts.Services;
 using Coworking.Api.Business.Models;
 using Coworking.Api.DataAccess.Contracts.Entities;
 using Coworking.Api.DataAccess.Contracts.Repositories;
 using Coworking.Api.DataAccess.Mappers;
+using Polly;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +17,12 @@ namespace Coworking.Api.Aplication.Services
     {
 
         private readonly IAdminRepository _adminRepository;
+        private readonly IAppConfig _appConfig;
 
-        public AdminService(IAdminRepository adminRepository)
+        public AdminService(IAdminRepository adminRepository, IAppConfig appConfig)
         {
             _adminRepository = adminRepository;
+            _appConfig = appConfig;
         }
 
 
@@ -36,8 +40,17 @@ namespace Coworking.Api.Aplication.Services
 
         public async Task<Admin> AddAdmin(Admin admin)
         {
-            var data = await _adminRepository.Add(AdminMapper.Map(admin));
-            return admin;
+            var maxtrys = _appConfig.MaxTrys;
+            var timeTowait = TimeSpan.FromSeconds(_appConfig.Time);
+            var retryPolly = Policy.Handle<Exception>().WaitAndRetryAsync(maxtrys, i => timeTowait);
+
+            return await retryPolly.ExecuteAsync(async () =>
+            {
+
+                    var data = await _adminRepository.Add(AdminMapper.Map(admin));
+                    return AdminMapper.Map(data);
+
+            });
         }
 
         public async Task<Admin> UpdateAdmin(Admin admin)

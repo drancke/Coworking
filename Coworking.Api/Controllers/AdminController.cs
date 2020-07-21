@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Coworking.Api.Aplication.Configuration;
 using Coworking.Api.Application.Contracts.Services;
 using Coworking.Api.Business.Models;
 using Coworking.Api.Mapper;
 using Coworking.Api.ViewModel;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Polly;
 
 namespace Coworking.Api.Controllers
 {
@@ -16,17 +18,21 @@ namespace Coworking.Api.Controllers
     public class AdminController : ControllerBase
     {
         private readonly IAdminService _adminService;
+       
 
 
         public AdminController(IAdminService adminService)
         {
             _adminService = adminService;
+            
         }
         // GET: api/Admin
         [HttpGet]
         public async Task<IActionResult> Get()
         {
+        
             var data = await _adminService.GetAll();
+
 
             return Ok(data);
         }
@@ -52,6 +58,9 @@ namespace Coworking.Api.Controllers
         [HttpPost(Name = "AddAdmin")]
         public async Task<IActionResult> Add([FromBody]AdminModel admin)
         {
+        
+
+
             var data = await _adminService.AddAdmin((AdminMapper.Map(admin)));
             return Ok(data);
         }

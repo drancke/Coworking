@@ -19,7 +19,7 @@ namespace Coworking.Api.DataAccess.Repositories
             _coworkingDbContext = coworkingDbContext;
         }
 
-        //CRUD:CREATE / READ / UPDATE /DELETE
+        // CRUD: CREATE / READ / UPDATE /DELETE 
 
 
 
@@ -45,13 +45,11 @@ namespace Coworking.Api.DataAccess.Repositories
 
         public async Task<AdminEntity> Update(int id,AdminEntity adminEntity)
         {
-            var dataExist = await Get(id);
-            adminEntity.Name = dataExist.Name;
-
-                  _coworkingDbContext.Admins.Update(adminEntity);
+         
+            var updateEntity =    _coworkingDbContext.Admins.Update(adminEntity);
             await _coworkingDbContext.SaveChangesAsync();
 
-            return adminEntity;
+            return updateEntity.Entity;
 
         }
 
@@ -63,9 +61,17 @@ namespace Coworking.Api.DataAccess.Repositories
 
         }
 
-        public Task<bool> Exist(int id)
+        public async Task<bool> Exist(int id)
         {
-            throw new NotImplementedException();
+            var dataExist = await Get(id);
+            bool existAdmin = false;
+            if (dataExist != null)
+            {
+                existAdmin = true;
+                return existAdmin;
+            }
+
+            return existAdmin;
         }
 
   

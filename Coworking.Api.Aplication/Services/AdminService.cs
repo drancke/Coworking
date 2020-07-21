@@ -51,5 +51,12 @@ namespace Coworking.Api.Aplication.Services
            await _adminRepository.DeleteAsync(id);
         }
 
+        public async Task<bool> Exits(int id)
+        {
+            var dataExist = await _adminRepository.Exist(id);
+
+            return dataExist;
+        }
+
     }
 }

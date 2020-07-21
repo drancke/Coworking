@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Coworking.Api.Config;
 using Coworking.Api.CrossCuting.Register;
 using Coworking.Api.DataAccess;
 using Coworking.Api.DataAccess.Contracts;
@@ -32,6 +33,7 @@ namespace Coworking.Api
         {
             
             IoTRegister.AddRegistration(services);
+            SwaggerConfig.AddRegistration(services);
             services.AddDbContext<CoworkingDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("DatabaseConnection")));
 
 
@@ -44,6 +46,7 @@ namespace Coworking.Api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+             
             }
             else
             {
@@ -51,8 +54,10 @@ namespace Coworking.Api
                 app.UseHsts();
             }
 
+            SwaggerConfig.addRegisterMiddleware(app);
             app.UseHttpsRedirection();
             app.UseMvc();
+
         }
     }
 }

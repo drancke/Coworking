@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Coworking.Api</name>
+    </assembly>
+    <members>
+        <member name="M:Coworking.Api.Controllers.BookingController.GetAll">
+            <summary>
+              Get all the booking
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Coworking.Api.Controllers.BookingController.GetId(System.Int32)">
+            <summary>
+            Get an booking for Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Coworking.Api.Controllers.BookingController.Exits(System.Int32)">
+            <summary>
+            Exist an booking for Id
+            </summary>
+            <param name="idExist"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Coworking.Api.Controllers.BookingController.Add(Coworking.Api.ViewModel.BookingModel)">
+            <summary>
+            Add an booking
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Coworking.Api.Controllers.BookingController.Update(Coworking.Api.ViewModel.BookingModel)">
+            <summary>
+            Update an booking
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Coworking.Api.Controllers.BookingController.Delete(System.Int32)">
+            <summary>
+            Delete an booking
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

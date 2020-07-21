@@ -16,6 +16,7 @@ namespace Coworking.Api.DataAccess.Mappers
                 Name = dto.Name,
                 Id = dto.Id,
                 Phone = dto.Phone,
+                //HireDate = dto.HireDate
             };
         }
         public static Admin Map(AdminEntity dto)
@@ -26,6 +27,7 @@ namespace Coworking.Api.DataAccess.Mappers
                 Name = dto.Name,
                 Id = dto.Id,
                 Phone = dto.Phone,
+                //HireDate = dto.HireDate
               
             };
         }

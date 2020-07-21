@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Coworking.Api.Application.Contracts.Services
 {
-   public interface IAdminService
+   public interface IServicesService
     {
-        Task<IEnumerable<Admin>> GetAll();
-        Task<Admin> GetAdmin(int id);
-        Task<Admin> AddAdmin(Admin admin);
-        Task<Admin> UpdateAdmin(Admin admin);
+        Task<IEnumerable<Service>> GetAll();
+        Task<Service> Get(int id);
+        Task<Service> Add(Service service);
+        Task<Service> Update(Service service);
         Task Delete(int id);
         Task<bool> Exits(int id);
 

@@ -11,45 +11,50 @@ using System.Threading.Tasks;
 
 namespace Coworking.Api.Aplication.Services
 {
-   public class ServicesService : IAdminService
+   public class ServicesService : IServicesService
     {
+                                                           
+        private readonly IServiceRepository _serviceRepository;
 
-        private readonly IAdminRepository _adminRepository;
-
-        public ServicesService(IAdminRepository adminRepository)
+        public ServicesService(IServiceRepository serviceRepository)
         {
-            _adminRepository = adminRepository;
+            _serviceRepository = serviceRepository;
         }
 
 
-        public async Task<IEnumerable<Admin>> GetAll()
+        public async Task<IEnumerable<Service>> GetAll()
         {
-            var dataEntity = await _adminRepository.GetAll();
-            return dataEntity.Select(AdminMapper.Map);
+            var dataEntity = await _serviceRepository.GetAll();
+            return dataEntity.Select(ServiceMapper.Map);
         }
 
-        public async Task<Admin> GetAdmin(int id)
+        public async Task<Service> Get(int id)
         {
-            var data = await _adminRepository.Get(id);            
-            return AdminMapper.Map(data);
+            var data = await _serviceRepository.Get(id);            
+            return ServiceMapper.Map(data);
         }
 
-        public async Task<Admin> AddAdmin(Admin admin)
+        public async Task<Service> Add(Service service)
         {
-            var data = await _adminRepository.Add(AdminMapper.Map(admin));
-            return admin;
+            var data = await _serviceRepository.Add(ServiceMapper.Map(service));
+            return service;
         }
 
-        public async Task<Admin> UpdateAdmin(Admin admin)
+        public async Task<Service> Update(Service service)
         {
-            var data = await _adminRepository.Update(admin.Id,AdminMapper.Map(admin));
-            return admin;
+            var data = await _serviceRepository.Update(service.Id, ServiceMapper.Map(service));
+            return service;
         }
 
         public async Task Delete (int id)
         {
-           await _adminRepository.DeleteAsync(id);
+           await _serviceRepository.DeleteAsync(id);
         }
 
+        public async Task<bool> Exits(int id)
+        {
+            var data = await _serviceRepository.Exist(id);
+            return data;
+        }
     }
 }

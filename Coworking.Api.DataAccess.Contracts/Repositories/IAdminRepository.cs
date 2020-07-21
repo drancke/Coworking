@@ -13,5 +13,6 @@ namespace Coworking.Api.DataAccess.Contracts.Repositories
         Task<AdminEntity> Add(AdminEntity adminEntity);
         Task<AdminEntity> Update(int id,AdminEntity adminEntity);
         Task DeleteAsync(int id);
+        Task<bool> Exist(int id);
     }
 }

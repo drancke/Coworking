@@ -10,10 +10,11 @@ namespace Coworking.Api.Application.Contracts.Services
    public interface IBookingService
     {
         Task<IEnumerable<Booking>> GetAll();
-        Task<Booking> GetBooking(int id);
-        Task<Booking> AddBooking(Booking admin);
-        Task<Booking> UpdateBooking(Booking admin);
+        Task<Booking> Get(int id);
+        Task<Booking> Add(Booking admin);
+        Task<Booking> Update(Booking admin);
         Task Delete(int id);
+        Task<bool> Exits(int id);
 
 
     }

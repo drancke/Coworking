@@ -11,45 +11,51 @@ using System.Threading.Tasks;
 
 namespace Coworking.Api.Aplication.Services
 {
-   public class RoomService : IAdminService
+   public class RoomService : IRoomService
     {
 
-        private readonly IAdminRepository _adminRepository;
+        private readonly IRoomRepository _roomRepository;
 
-        public RoomService(IAdminRepository adminRepository)
+        public RoomService(IRoomRepository roomRepository)
         {
-            _adminRepository = adminRepository;
+            _roomRepository = roomRepository;
         }
 
 
-        public async Task<IEnumerable<Admin>> GetAll()
+        public async Task<IEnumerable<Room>> GetAll()
         {
-            var dataEntity = await _adminRepository.GetAll();
-            return dataEntity.Select(AdminMapper.Map);
+            var dataEntity = await _roomRepository.GetAll();
+            return dataEntity.Select(RoomMapper.Map);
         }
 
-        public async Task<Admin> GetAdmin(int id)
+        public async Task<Room> Get(int id)
         {
-            var data = await _adminRepository.Get(id);            
-            return AdminMapper.Map(data);
+            var room = await _roomRepository.Get(id);            
+            return RoomMapper.Map(room);
         }
 
-        public async Task<Admin> AddAdmin(Admin admin)
+        public async Task<Room> Add(Room room)
         {
-            var data = await _adminRepository.Add(AdminMapper.Map(admin));
-            return admin;
+            var data = await _roomRepository.Add(RoomMapper.Map(room));
+            return room;
         }
 
-        public async Task<Admin> UpdateAdmin(Admin admin)
+        public async Task<Room> Update(Room room)
         {
-            var data = await _adminRepository.Update(admin.Id,AdminMapper.Map(admin));
-            return admin;
+            var data = await _roomRepository.Update(room.Id, RoomMapper.Map(room));
+            return room;
         }
 
         public async Task Delete (int id)
         {
-           await _adminRepository.DeleteAsync(id);
+           await _roomRepository.DeleteAsync(id);
         }
 
+
+        public async Task<bool> Exits(int id)
+        {
+           var data =  await _roomRepository.Exist(id);
+            return data;
+        }
     }
 }

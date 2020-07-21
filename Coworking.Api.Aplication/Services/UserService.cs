@@ -11,45 +11,50 @@ using System.Threading.Tasks;
 
 namespace Coworking.Api.Aplication.Services
 {
-   public class UserService : IAdminService
+   public class UserService : IUserService
     {
 
-        private readonly IAdminRepository _adminRepository;
+        private readonly IUserRepository _userRepository;
 
-        public UserService(IAdminRepository adminRepository)
+        public UserService(IUserRepository userRepository)
         {
-            _adminRepository = adminRepository;
+            _userRepository = userRepository;
         }
 
 
-        public async Task<IEnumerable<Admin>> GetAll()
+        public async Task<IEnumerable<User>> GetAll()
         {
-            var dataEntity = await _adminRepository.GetAll();
-            return dataEntity.Select(AdminMapper.Map);
+            var dataEntity = await _userRepository.GetAll();
+            return dataEntity.Select(UserMapper.Map);
         }
 
-        public async Task<Admin> GetAdmin(int id)
+        public async Task<User> Get(int id)
         {
-            var data = await _adminRepository.Get(id);            
-            return AdminMapper.Map(data);
+            var data = await _userRepository.Get(id);            
+            return UserMapper.Map(data);
         }
 
-        public async Task<Admin> AddAdmin(Admin admin)
+        public async Task<User> Add(User user)
         {
-            var data = await _adminRepository.Add(AdminMapper.Map(admin));
-            return admin;
+            var data = await _userRepository.Add(UserMapper.Map(user));
+            return user;
         }
 
-        public async Task<Admin> UpdateAdmin(Admin admin)
+        public async Task<User> Update(User user)
         {
-            var data = await _adminRepository.Update(admin.Id,AdminMapper.Map(admin));
-            return admin;
+            var data = await _userRepository.Update(user.Id, UserMapper.Map(user));
+            return user;
         }
 
         public async Task Delete (int id)
         {
-           await _adminRepository.DeleteAsync(id);
+           await _userRepository.DeleteAsync(id);
         }
 
+        public async Task<bool> Exits(int id)
+        {
+            var data = await _userRepository.Exist(id);
+            return data;
+        }
     }
 }

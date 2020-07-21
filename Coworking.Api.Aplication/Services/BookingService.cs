@@ -28,19 +28,19 @@ namespace Coworking.Api.Aplication.Services
             return dataEntity.Select(BookingMapper.Map);
         }
 
-        public async Task<Booking> GetBooking(int id)
+        public async Task<Booking> Get(int id)
         {
             var data = await _bookingRepository.Get(id);            
             return BookingMapper.Map(data);
         }
 
-        public async Task<Booking> AddBooking(Booking booking)
+        public async Task<Booking> Add(Booking booking)
         {
             var data = await _bookingRepository.Add(BookingMapper.Map(booking));
             return booking;
         }
 
-        public async Task<Booking> UpdateBooking(Booking booking)
+        public async Task<Booking> Update(Booking booking)
         {
             var data = await _bookingRepository.Update(booking.Id, BookingMapper.Map(booking));
             return booking;
@@ -49,6 +49,11 @@ namespace Coworking.Api.Aplication.Services
         public async Task Delete (int id)
         {
            await _bookingRepository.DeleteAsync(id);
+        }
+        public async Task<bool> Exits(int id)
+        {
+            var data = await _bookingRepository.Exist(id);
+            return data;
         }
 
     }

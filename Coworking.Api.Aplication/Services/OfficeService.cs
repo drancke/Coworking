@@ -11,45 +11,50 @@ using System.Threading.Tasks;
 
 namespace Coworking.Api.Aplication.Services
 {
-   public class OfficeService : IAdminService
+   public class OfficeService : IOfficeService
     {
 
-        private readonly IAdminRepository _adminRepository;
+        private readonly IOfficeRepository _officeRepository;
 
-        public OfficeService(IAdminRepository adminRepository)
+        public OfficeService(IOfficeRepository officeRepository)
         {
-            _adminRepository = adminRepository;
+            _officeRepository = officeRepository;
         }
 
 
-        public async Task<IEnumerable<Admin>> GetAll()
+        public async Task<IEnumerable<Office>> GetAll()
         {
-            var dataEntity = await _adminRepository.GetAll();
-            return dataEntity.Select(AdminMapper.Map);
+            var dataEntity = await _officeRepository.GetAll();
+            return dataEntity.Select(OfficeMapper.Map);
         }
 
-        public async Task<Admin> GetAdmin(int id)
+        public async Task<Office> Get(int id)
         {
-            var data = await _adminRepository.Get(id);            
-            return AdminMapper.Map(data);
+            var office = await _officeRepository.Get(id);            
+            return OfficeMapper.Map(office);
         }
 
-        public async Task<Admin> AddAdmin(Admin admin)
+        public async Task<Office> Add(Office office)
         {
-            var data = await _adminRepository.Add(AdminMapper.Map(admin));
-            return admin;
+            var data = await _officeRepository.Add(OfficeMapper.Map(office));
+            return office;
         }
 
-        public async Task<Admin> UpdateAdmin(Admin admin)
+        public async Task<Office> Update(Office office)
         {
-            var data = await _adminRepository.Update(admin.Id,AdminMapper.Map(admin));
-            return admin;
+            var data = await _officeRepository.Update(office.Id, OfficeMapper.Map(office));
+            return office;
         }
 
         public async Task Delete (int id)
         {
-           await _adminRepository.DeleteAsync(id);
+           await _officeRepository.DeleteAsync(id);
         }
 
+        public async Task<bool> Exits(int id)
+        {
+           var office =  await _officeRepository.Exist(id);
+            return office;
+        }
     }
 }

@@ -43,7 +43,7 @@ namespace Coworking.Api.DataAccess.Repositories
             return adminEntity;
         }
 
-        public async Task<AdminEntity> Update(int id,AdminEntity adminEntity)
+        public async Task<AdminEntity> Update(AdminEntity adminEntity)
         {
          
             var updateEntity =    _coworkingDbContext.Admins.Update(adminEntity);

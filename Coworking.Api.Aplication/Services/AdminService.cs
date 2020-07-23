@@ -56,7 +56,7 @@ namespace Coworking.Api.Aplication.Services
 
         public async Task<Admin> UpdateAdmin(Admin admin)
         {
-            var data = await _adminRepository.Update(admin.Id,AdminMapper.Map(admin));
+            var data = await _adminRepository.Update(AdminMapper.Map(admin));
             return admin;
         }
 

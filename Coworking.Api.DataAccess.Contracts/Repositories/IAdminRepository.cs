@@ -11,7 +11,7 @@ namespace Coworking.Api.DataAccess.Contracts.Repositories
         Task<IEnumerable<AdminEntity>> GetAll();
         Task<AdminEntity> Get(int id);
         Task<AdminEntity> Add(AdminEntity adminEntity);
-        Task<AdminEntity> Update(int id,AdminEntity adminEntity);
+        Task<AdminEntity> Update(AdminEntity adminEntity);
         Task DeleteAsync(int id);
         Task<bool> Exist(int id);
     }

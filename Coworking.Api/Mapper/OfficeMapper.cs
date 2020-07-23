@@ -13,6 +13,7 @@ namespace Coworking.Api.Mapper
         {
             return new Office
             {
+                Id =  dto.Id   ,
                Name = dto.Name,
                Acctive = dto.Acctive,
                Address = dto.Address,

@@ -42,7 +42,7 @@ namespace Coworking.Api.Aplication.Services
 
         public async Task<Office> Update(Office office)
         {
-            var data = await _officeRepository.Update(office.Id, OfficeMapper.Map(office));
+            var data = await _officeRepository.Update( OfficeMapper.Map(office));
             return office;
         }
 

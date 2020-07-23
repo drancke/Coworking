@@ -9,7 +9,7 @@ namespace Coworking.Api.DataAccess.Contracts.Repositories
     public interface IBookingRepository : IRepository<BookingEntity>
     {
         Task<BookingEntity> Add(BookingEntity element);
-        Task<BookingEntity> Update(int id, BookingEntity entity);
+        Task<BookingEntity> Update( BookingEntity entity);
         Task DeleteAsync(int id);
         Task<bool> Exist(int id);
         Task<BookingEntity> Get(int id);

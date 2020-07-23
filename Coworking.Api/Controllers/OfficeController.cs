@@ -52,7 +52,7 @@ namespace Coworking.Api.Controllers
             return Ok(dataEntity);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut]
         public async Task<IActionResult> Update([FromBody] OfficeModel data)
         {
             var dataUpdate = await _officeService.Update(OfficeMapper.Map(data));

@@ -9,7 +9,7 @@ namespace Coworking.Api.DataAccess.Contracts.Repositories
     public interface IServiceRepository : IRepository<ServiceEntity>
     {
         Task<ServiceEntity> Add(ServiceEntity element);
-        Task<ServiceEntity> Update(int id, ServiceEntity entity);
+        Task<ServiceEntity> Update(ServiceEntity entity);
         Task DeleteAsync(int id);
         Task<bool> Exist(int id);
         Task<ServiceEntity> Get(int id);

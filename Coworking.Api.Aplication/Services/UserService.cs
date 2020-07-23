@@ -42,7 +42,7 @@ namespace Coworking.Api.Aplication.Services
 
         public async Task<User> Update(User user)
         {
-            var data = await _userRepository.Update(user.Id, UserMapper.Map(user));
+            var data = await _userRepository.Update( UserMapper.Map(user));
             return user;
         }
 

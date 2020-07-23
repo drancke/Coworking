@@ -42,7 +42,7 @@ namespace Coworking.Api.Aplication.Services
 
         public async Task<Booking> Update(Booking booking)
         {
-            var data = await _bookingRepository.Update(booking.Id, BookingMapper.Map(booking));
+            var data = await _bookingRepository.Update( BookingMapper.Map(booking));
             return booking;
         }
 

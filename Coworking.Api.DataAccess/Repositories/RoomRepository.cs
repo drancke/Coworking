@@ -57,12 +57,12 @@ namespace Coworking.Api.DataAccess.Repositories
             return result;
         }
 
-        public async Task<RoomEntity> Update(int id, RoomEntity entity)
+        public async Task<RoomEntity> Update( RoomEntity entity)
         {
-            var entry = await Get(id);
-            _coworkingDbContext.Rooms.Update(entity);
+        
+            var updateEntity = _coworkingDbContext.Rooms.Update(entity);
             await _coworkingDbContext.SaveChangesAsync();
-            return entity;
+            return updateEntity.Entity;
         }
     }
 }

@@ -55,12 +55,12 @@ namespace Coworking.Api.Controllers
         }
 
         // POST: api/Admin
+        [Produces("application/json", Type = typeof(AdminModel))]
+
         [HttpPost(Name = "AddAdmin")]
         public async Task<IActionResult> Add([FromBody]AdminModel admin)
         {
         
-
-
             var data = await _adminService.AddAdmin((AdminMapper.Map(admin)));
             return Ok(data);
         }

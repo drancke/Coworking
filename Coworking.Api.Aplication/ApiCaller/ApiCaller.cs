@@ -14,31 +14,31 @@ namespace Coworking.Api.Aplication.ApiCaller
         private readonly HttpClient httpClient;
         private readonly IAppConfig _appConfig;
 
-        public ApiCaller(IAppConfig appConfig)
-        {
-            httpClient = new HttpClient {
-                BaseAddress =  new Uri(appConfig.ServiceUrl),
+        //public ApiCaller(IAppConfig appConfig)
+        //{
+        //    httpClient = new HttpClient {
+        //        BaseAddress =  new Uri(appConfig.ServiceUrl),
 
-            };
+        //    };
 
-            httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers
-                .MediaTypeWithQualityHeaderValue(  "application/json"));
-        }
+        //    httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers
+        //        .MediaTypeWithQualityHeaderValue(  "application/json"));
+        //}
 
 
-        public async Task<T>  GetServiceResponse<T>(int id)
-        {
-            var response = await httpClient.GetAsync(id.ToString());
+        //public async Task<T>  GetServiceResponse<T>(int id)
+        //{
+        //    var response = await httpClient.GetAsync(id.ToString());
 
-            if (!response.IsSuccessStatusCode)
-            {
-                return default(T);
-            }
-            var result = await response.Content.ReadAsStringAsync();
+        //    if (!response.IsSuccessStatusCode)
+        //    {
+        //        return default(T);
+        //    }
+        //    var result = await response.Content.ReadAsStringAsync();
 
-            return JsonConvert.DeserializeObject<T>(result);
+        //    return JsonConvert.DeserializeObject<T>(result);
 
-        }
+        //}
 
 
 

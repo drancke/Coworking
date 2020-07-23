@@ -28,6 +28,11 @@ namespace Coworking.Api.CrossCuting.Register
         {
             services.AddTransient<IAdminService, AdminService>();
             services.AddTransient<IBookingService, BookingService>();   
+            services.AddTransient<IAdminService, AdminService>();   
+            services.AddTransient<IOfficeService, OfficeService>();   
+            services.AddTransient<IUserService, UserService>();   
+            services.AddTransient<IServicesService, ServicesService>();   
+            services.AddTransient<IRoomService, RoomService>();   
             
             return services;
         }

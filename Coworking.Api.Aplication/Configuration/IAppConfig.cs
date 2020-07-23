@@ -9,6 +9,6 @@ namespace Coworking.Api.Aplication.Configuration
 
         int MaxTrys { get; }
         int Time { get; }
-        string ServiceUrl { get; }
+        //string ServiceUrl { get; }
     }
 }

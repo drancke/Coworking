@@ -16,6 +16,6 @@ namespace Coworking.Api.Aplication.Configuration
 
         public int MaxTrys => int.Parse(_configuration.GetSection("Polly:MaxTry").Value);
         public int Time => int.Parse(_configuration.GetSection("Polly:Time").Value);
-        public string ServiceUrl => (_configuration.GetSection("ServiceUrl:Url").Value);
+        //public string ServiceUrl => (_configuration.GetSection("ServiceUrl:Url").Value);
     }
 }

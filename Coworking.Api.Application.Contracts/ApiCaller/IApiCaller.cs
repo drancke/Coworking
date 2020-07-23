@@ -8,6 +8,6 @@ namespace Coworking.Api.Application.Contracts.ApiCaller
     public interface IApiCaller
     {
 
-        Task<T> GetServiceResponse<T>(int id);
+        //Task<T> GetServiceResponse<T>(int id);
     }
 }

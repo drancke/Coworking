@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Coworking.Api.DataAccess.Migrations
 {
     [DbContext(typeof(CoworkingDbContext))]
-    [Migration("20200715152854_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20200722135800_InitializaAzureDb")]
+    partial class InitializaAzureDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -90,6 +90,8 @@ namespace Coworking.Api.DataAccess.Migrations
 
                     b.Property<string>("Address");
 
+                    b.Property<int?>("AdminId");
+
                     b.Property<string>("City");
 
                     b.Property<int>("HasIndividualWorkSpace");
@@ -108,8 +110,7 @@ namespace Coworking.Api.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("IdAdmin")
-                        .IsUnique();
+                    b.HasIndex("AdminId");
 
                     b.ToTable("Office");
                 });
@@ -209,9 +210,8 @@ namespace Coworking.Api.DataAccess.Migrations
             modelBuilder.Entity("Coworking.Api.DataAccess.Contracts.Entities.OfficeEntity", b =>
                 {
                     b.HasOne("Coworking.Api.DataAccess.Contracts.Entities.AdminEntity", "Admin")
-                        .WithOne("Office")
-                        .HasForeignKey("Coworking.Api.DataAccess.Contracts.Entities.OfficeEntity", "IdAdmin")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .WithMany()
+                        .HasForeignKey("AdminId");
                 });
 
             modelBuilder.Entity("Coworking.Api.DataAccess.Contracts.Entities.Room2ServiceEntity", b =>

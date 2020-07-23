@@ -27,7 +27,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Coworking.Api.DataAccess", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Coworking.Api.DataAccess.Contracts", "Coworking.Api.DataAccess.Contracts\Coworking.Api.DataAccess.Contracts.csproj", "{165017C6-CC3F-470B-A528-B9F6A2C65A54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coworking.Api.CrossCuting", "Coworking.Api.CrossCuting\Coworking.Api.CrossCuting.csproj", "{E2FC172E-9871-4D00-9E52-9C0F5A74A382}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Coworking.Api.CrossCuting", "Coworking.Api.CrossCuting\Coworking.Api.CrossCuting.csproj", "{E2FC172E-9871-4D00-9E52-9C0F5A74A382}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

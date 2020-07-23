@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Coworking.Api.DataAccess.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class InitializaAzureDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -84,17 +84,18 @@ namespace Coworking.Api.DataAccess.Migrations
                     HasIndividualWorkSpace = table.Column<int>(nullable: false),
                     NumberWorSpace = table.Column<int>(nullable: false),
                     PriceWorkSpaceMonth = table.Column<double>(nullable: false),
-                    PriceWorKpaceDay = table.Column<double>(nullable: false)
+                    PriceWorKpaceDay = table.Column<double>(nullable: false),
+                    AdminId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Office", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Office_Admin_IdAdmin",
-                        column: x => x.IdAdmin,
+                        name: "FK_Office_Admin_AdminId",
+                        column: x => x.AdminId,
                         principalTable: "Admin",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -188,10 +189,9 @@ namespace Coworking.Api.DataAccess.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Office_IdAdmin",
+                name: "IX_Office_AdminId",
                 table: "Office",
-                column: "IdAdmin",
-                unique: true);
+                column: "AdminId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Office2Room_IdRoom",

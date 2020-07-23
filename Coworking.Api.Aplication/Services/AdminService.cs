@@ -47,8 +47,9 @@ namespace Coworking.Api.Aplication.Services
             return await retryPolly.ExecuteAsync(async () =>
             {
 
-                    var data = await _adminRepository.Add(AdminMapper.Map(admin));
-                    return AdminMapper.Map(data);
+            var data = await _adminRepository.Add(AdminMapper.Map(admin));
+            return AdminMapper.Map(data);
+
 
             });
         }

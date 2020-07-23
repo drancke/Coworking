@@ -6,6 +6,7 @@ using Coworking.Api.Config;
 using Coworking.Api.CrossCuting.Register;
 using Coworking.Api.DataAccess;
 using Coworking.Api.DataAccess.Contracts;
+using Coworking.Api.Middlewares;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -55,6 +56,7 @@ namespace Coworking.Api
             }
 
             SwaggerConfig.addRegisterMiddleware(app);
+            //app.UseLogApplicationInsights();
             app.UseHttpsRedirection();
             app.UseMvc();
 
